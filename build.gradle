@@ -1,0 +1,173 @@
+buildscript{
+    repositories{
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+        maven{
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven{
+            name = "mavenCentral"
+            url = "https://repo1.maven.org/maven2/"
+        }
+        maven{
+            name = "mavenCentralApache"
+            url = "https://repo.maven.apache.org/maven2/"
+        }
+        maven{
+            name = "mavenM2"
+            url = "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies{
+        //classpath ""
+    }
+}
+
+plugins{
+    id "java"
+    id "java-library"
+    id "application"
+    id "maven"
+}
+
+apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "application"
+apply plugin: "maven"
+
+def app_Name = "Operator"
+def app_Author = "16zni"
+def app_Vendor = "${app_Author}.com"
+def app_Description = "[API] Operating System Properties."
+def app_URL = "${app_Vendor}"
+def app_Update_URL = "${app_URL}"
+def app_Credits = "${app_Vendor} - Tout droit réservé."
+def app_Status = "dev"          // Values : "release", "dev", "beta", "snapshot", ...
+def app_Base_Name = "${app_Name}"
+def app_ID = "${app_Base_Name}".toLowerCase()
+def app_Group = "com._${app_Author}.commons"
+def app_Main_Package = "${app_Group}.${app_Base_Name}".toLowerCase()
+def app_Main_Class_Name = "${app_Base_Name}"
+def app_Main_Class_Path = "${app_Main_Package}.${app_Main_Class_Name}"
+def app_Version = "1.0.0"
+def app_Appendix = "${app_Status}"  // Values : "release", "dev", "beta", "snapshot", ...
+def app_Classifier = "api"       		// Values : "server", "installer", "client", "mod", "gui", "app", "universal", "api", "snapshot", ...
+def app_Extension = "jar"
+
+description = "${app_Description}"
+status = "${app_Status}"            // Values : "release", "dev", "beta", "snapshot", ...
+archivesBaseName = "${app_Base_Name}"
+group = "${app_Main_Package}"       //"${app_Group}.${app_Base_Name}".toLowerCase()
+version = "${app_Version}"
+buildDir = file("${projectDir}/build")
+
+def color_Reset = "\u001B[0m"
+def color_White = "\u001B[37m"
+def color_Black = "\u001B[30m"
+def color_Red = "\u001B[31m"
+def color_Green = "\u001B[32m"
+def color_Blue = "\u001B[34m"
+def color_Yellow = "\u001B[33m"
+def color_Cyan = "\u001B[36m"
+def color_Purple = "\u001B[35m"
+println "${color_Cyan}> ${color_Yellow}Application Name ${color_Purple}#${color_Red}~               ${color_Green}${app_Name}"
+println "${color_Cyan}> ${color_Yellow}Application Author ${color_Purple}#${color_Red}~             ${color_Green}${app_Author}"
+println "${color_Cyan}> ${color_Yellow}Application Vendor ${color_Purple}#${color_Red}~             ${color_Green}${app_Vendor}"
+println "${color_Cyan}> ${color_Yellow}Application Description ${color_Purple}#${color_Red}~        ${color_Green}${app_Description}"
+println "${color_Cyan}> ${color_Yellow}Application URL ${color_Purple}#${color_Red}~                ${color_Green}${app_URL}"
+println "${color_Cyan}> ${color_Yellow}Application Update URL ${color_Purple}#${color_Red}~         ${color_Green}${app_Update_URL}"
+println "${color_Cyan}> ${color_Yellow}Application Credits ${color_Purple}#${color_Red}~            ${color_Green}${app_Credits}"
+println "${color_Cyan}> ${color_Yellow}Application Status ${color_Purple}#${color_Red}~             ${color_Green}${app_Status}"
+println "${color_Cyan}> ${color_Yellow}Application Base Name ${color_Purple}#${color_Red}~          ${color_Green}${app_Base_Name}"
+println "${color_Cyan}> ${color_Yellow}Application ID ${color_Purple}#${color_Red}~                 ${color_Green}${app_ID}"
+println "${color_Cyan}> ${color_Yellow}Application Group ${color_Purple}#${color_Red}~              ${color_Green}${app_Group}"
+println "${color_Cyan}> ${color_Yellow}Application Main Package ${color_Purple}#${color_Red}~       ${color_Green}${app_Main_Package}"
+println "${color_Cyan}> ${color_Yellow}Application Main Class Name ${color_Purple}#${color_Red}~    ${color_Green}${app_Main_Class_Name}"
+println "${color_Cyan}> ${color_Yellow}Application Main Class Path ${color_Purple}#${color_Red}~    ${color_Green}${app_Main_Class_Path}"
+println "${color_Cyan}> ${color_Yellow}Application Version ${color_Purple}#${color_Red}~            ${color_Green}${app_Version}"
+println "${color_Cyan}> ${color_Yellow}Application Appendix ${color_Purple}#${color_Red}~           ${color_Green}${app_Appendix}"
+println "${color_Cyan}> ${color_Yellow}Application Classifier ${color_Purple}#${color_Red}~         ${color_Green}${app_Classifier}"
+println "${color_Cyan}> ${color_Yellow}Application Extention ${color_Purple}#${color_Red}~          ${color_Green}${app_Extension}"
+println "${color_Cyan}>"
+println "${color_Cyan}> ${color_Yellow}Project Name ${color_Purple}#${color_Red}~                   ${color_Green}${name}"
+println "${color_Cyan}> ${color_Yellow}Project Description ${color_Purple}#${color_Red}~            ${color_Green}${description}"
+println "${color_Cyan}> ${color_Yellow}Project Status ${color_Purple}#${color_Red}~                 ${color_Green}${status}"
+println "${color_Cyan}> ${color_Yellow}Project Archive Base Name ${color_Purple}#${color_Red}~      ${color_Green}${archivesBaseName}"
+println "${color_Cyan}> ${color_Yellow}Project Group ${color_Purple}#${color_Red}~                  ${color_Green}${group}"
+println "${color_Cyan}> ${color_Yellow}Project Version ${color_Purple}#${color_Red}~                ${color_Green}${version}"
+println "${color_Cyan}> ${color_Yellow}Project Root Directory ${color_Purple}#${color_Red}~         ${color_Green}${rootDir}"
+println "${color_Cyan}> ${color_Yellow}Project Directory ${color_Purple}#${color_Red}~              ${color_Green}${projectDir}"
+println "${color_Cyan}> ${color_Yellow}Project Build Directory ${color_Purple}#${color_Red}~        ${color_Green}${buildDir}"
+println "${color_Cyan}>"
+println "${color_Cyan}> ${color_Yellow}Archive Main Class Name ${color_Purple}#${color_Red}~        ${color_Green}${mainClassName}"
+println "${color_Cyan}> ${color_Yellow}Archive Path ${color_Purple}#${color_Red}~                   ${color_Green}${jar.archivePath}"
+println "${color_Cyan}> ${color_Reset}" 
+
+application{
+    mainClassName = "${app_Main_Class_Path}"
+	compileJava.options.encoding = "UTF-8"
+}
+
+jar{
+    archiveBaseName = "${app_Base_Name}"
+    archiveVersion = "${app_Version}"
+    archiveAppendix = "${app_Appendix}"
+    archiveClassifier = "${app_Classifier}"
+    archiveExtension = "${app_Extension}"
+    archiveFileName = "${app_Base_Name}_${app_Version}_${app_Appendix}_${app_Classifier}.${app_Extension}"
+    destinationDirectory = file("${projectDir}/out/jars")
+    //libsDirectory = file("${projectDir}/out/jars")
+    //distsDirectory = file("${projectDir}/out/distributions")
+    manifest.attributes([
+            "Manifest-Version"          :   "${app_Version}",
+            "Implementation-Title"      :   "${app_Name}",
+            "Implementation-Vendor"     :   "${app_Vendor}",
+            "Implementation-Version"    :   "${app_Version}_${app_Appendix}_${app_Classifier}",
+            "Main-Class"                :   "${application.mainClassName}"/*"${app_Main_Class_Path}"*/ /*,
+            //"Class-Path"                :   generateClasspath()*/
+        ])
+}
+
+repositories{
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+    maven{
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+    maven{
+        name = "mavenCentral"
+        url = "https://repo1.maven.org/maven2/"
+    }
+    maven{
+        name = "mavenCentralApache"
+        url = "https://repo.maven.apache.org/maven2/"
+    }
+    maven{
+     name = "mavenM2"
+     url = "https://plugins.gradle.org/m2/"
+    }
+}
+
+dependencies{
+    /*api "org.apache.commons:commons-math3:3.6.1"
+    implementation "com.google.guava:guava:28.0-jre"
+    testImplementation "junit:junit:4.12"*/
+}
+
+task defaultTasks{
+}
+
+task copyDists(type: Copy){
+    from file("${buildDir}/distributions")
+    into file("${projectDir}/out/distributions")
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+    sourceCompatibility = "8"
+    targetCompatibility = "8"
+}
