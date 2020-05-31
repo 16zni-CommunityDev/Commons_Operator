@@ -35,7 +35,7 @@ public class Bootstrap implements IBootstrap{
 		operatingSystem.getProperties().setSystemProperties(System.getProperties());
 		//operatingSystem.setOS(EnumOS.ALL);// a reset
 		initOSProperties(operatingSystem);
-		/* 	Voir apache common lang 	*/
+		/* 	Voir common lang 	*/
 	}
 
 	public void initOSProperties(OperatingSystem operatingSystem){
