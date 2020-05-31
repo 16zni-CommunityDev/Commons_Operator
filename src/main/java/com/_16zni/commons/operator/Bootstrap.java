@@ -40,7 +40,7 @@ public class Bootstrap implements IBootstrap{
 
 	public void initOSProperties(OperatingSystem operatingSystem){
 		//operatingSystem.getProperties().add("java.version");
-		
+		//test 2
 		//Properties properties = System.getProperties();
 		//properties.size();
 		//properties.getProperty(key)
