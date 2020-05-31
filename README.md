@@ -3,7 +3,7 @@
 
 Minimum Java Version is 
 
-![Java JDK v1.8][java]
+[![Java JDK v1.8]][java]
 
 [![Latest release](https://img.shields.io/github/release/google/guava.svg)](https://github.com/google/guava/releases/latest)
 [![Build Status](https://travis-ci.org/google/guava.svg?branch=master)](https://travis-ci.org/google/guava)
