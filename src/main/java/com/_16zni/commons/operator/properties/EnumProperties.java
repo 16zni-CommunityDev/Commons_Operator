@@ -1,27 +1,36 @@
-package com._16zni.commons.operator;
+package com._16zni.commons.operator.properties;
 
-final class PropertiesConstants{
-	static final String java = "Java";
+final class PC/*Properties Constants*/{
+	public static final String SPACE = " ";
+	static final String JAVA = "Java";
+	static final String VERSION = "Version";
+	static final String VERSION_$ = VERSION.toLowerCase();
+	static final String VENDOR = "Vendor";
+	static final String VENDOR_$ = VENDOR.toLowerCase();
+	static final String JRE = "JRE";
+	static final String JRE_$ = "Java runtime environment";
+	static final String URL = "URL";
+	static final String URL_$ = "uniform resource locator";
 }
 
 public enum EnumProperties{
 	/*	Java Properties Separator = ,	*/
 	
 	//	JAVA (0 - 19)
-	JAVA_VERSION(0, true, "java.version", PropertiesConstants.java + " Version", "Java runtime environment version number"), 
-	JAVA_VERSION_DATE(1, false, "java.version.date", "Java Version Data", "Java version release date"), 
-	JAVA_VENDOR(2, true, "java.vendor", "Java Vendor", "Java runtime environment vendor specific string"), 
-	JAVA_VENDOR_VERSION(3, false, "java.vendor.version", "Java Vendor Version", "Java vendor version"), 
-	JAVA_VENDOR_URL(4, true, "java.vendor.url", "Java Vendor URL", "Java vendor url"), 
-	JAVA_VENDOR_URL_BUG(5, false, "java.vendor.url.bug", "Java Vendor URL Bug", "Java vendor url bug report"), 
-	JAVA_HOME(6, true, "java.home", "Java Home", "Java installation directory"), 
-	JAVA_FULLVERSION(7, false, "java.fullversion", "Java Full Version", "Java full version"),
+	JAVA_VERSION(0, true, "java.version", PC.JAVA + PC.SPACE + PC.VERSION, PC.JRE_$ + PC.SPACE + PC.VERSION + " number"), 
+	JAVA_VERSION_DATE(1, false/*true*/, "java.version.date", PC.JAVA + PC.SPACE + PC.VERSION + " Date", PC.JAVA + PC.SPACE + PC.VERSION_$ + " release date"), 
+	JAVA_VENDOR(2, true, "java.vendor", PC.JAVA + PC.SPACE + PC.VENDOR, PC.JRE + PC.SPACE + PC.VENDOR_$ + " specific string"), 
+	JAVA_VENDOR_VERSION(3, false/*true*/, "java.vendor.version", PC.JAVA + PC.SPACE + PC.VENDOR + PC.SPACE + PC.VERSION, PC.JAVA + PC.SPACE + PC.VENDOR_$ + PC.SPACE + PC.VERSION_$), 
+	JAVA_VENDOR_URL(4, true, "java.vendor.url", PC.JAVA + PC.SPACE + PC.VENDOR + PC.SPACE + PC.URL, PC.JAVA + PC.SPACE + PC.VENDOR_$ + PC.SPACE + PC.URL_$), 
+	JAVA_VENDOR_URL_BUG(5, false, "java.vendor.url.bug", PC.JAVA + PC.SPACE + PC.VENDOR + PC.SPACE + PC.URL + " Bug", PC.JAVA + PC.SPACE + PC.VENDOR_$ + PC.SPACE + PC.URL_$ + " bug report"), 
+	JAVA_HOME(6, true, "java.home", PC.JAVA + " Home", PC.JAVA + " installation directory"), 
+	JAVA_FULLVERSION(7, false, "java.fullversion", PC.JAVA + " Full " + PC.VERSION, PC.JAVA + " full " + PC.VERSION_$),
 	
-	// JAVA (20 - 39)
-	JAVA_COMPILER(20, false, "java.compiler", "Java Compiler", "Name of just in time (JIT) compiler to use"), 
-	JAVA_IO_TMP_DIR(21, false, "java.io.tmpdir", "Java IO Temp Dir", "Default temporary directory file path"), 
+	//	JAVA (20 - 39)
+	JAVA_COMPILER(20, false/*true*/, "java.compiler", "Java Compiler", "Name of just in time (JIT) compiler to use"), 
+	JAVA_IO_TMP_DIR(21, false/*true*/, "java.io.tmpdir", "Java IO Temp Dir", "Default temporary directory file path"), 
 	JAVA_TMP_DIR(22, false, "java.tmpdir", "Java Temp Dir", "Java temporary directory"), 
-	JAVA_LIBRARY_PATH(/*Use PATH_SEPARATOR to separate different path*/23, false, "java.library.path", "Java Library Path", "List of paths to search when loading libraries"), 
+	JAVA_LIBRARY_PATH(/*Use PATH_SEPARATOR to separate different path*/23, false/*true*/, "java.library.path", "Java Library Path", "List of paths to search when loading libraries"), 
 	@Deprecated
 	JAVA_EXT_DIRS(24, false, "java.ext.dirs", "Java Extention Directory", "Path of extension directory or directories"), 
 	JAVA_ENDORSED_DIRS(25, false, "java.endorsed.dirs", "Java Endorsed Dirs", "Java endorsed directories"), 
@@ -30,7 +39,7 @@ public enum EnumProperties{
 	JAVA_UTIL_PREFS_FACTORY(28, false, "java.util.prefs.PreferencesFactory", "Java Util Prefs Factory", "Java util preferences factory"),
 	
 	//	JAVA CLASS  (40 - 59)
-	JAVA_CLASS_VERSION(/*Enum des class version*/40, true, "java.class.version", "Java Class Version", "Java class format version number"), 
+	JAVA_CLASS_VERSION(40, true, "java.class.version", "Java Class Version", "Java class format version number"), 
 	JAVA_CLASS_PATH(/*Use PATH_SEPARATOR to separate different path*/41, true, "java.class.path", "Java Class Path", "Java classpath"),
 	
 	//	JAVA RUNTIME (60 - 79)
@@ -38,22 +47,22 @@ public enum EnumProperties{
 	JAVA_RUNTIME_VERSION(61, false, "java.runtime.version", "Java Runtime Version", "Java runtime version"),
 	
 	// JAVA SPECIFICATION (80 - 99)
-	JAVA_SPECIFICATION_VERSION(80, false, "java.specification.version", "Java Specification Version", "Java runtime environment specification version"), 
-	JAVA_SPECIFICATION_VENDOR(81, false, "java.specification.vendor", "Java Specification Vendor", "Java runtime environment specification vendor"), 
-	JAVA_SPECIFICATION_NAME(82, false, "java.specification.name", "Java Specification Name", "Java runtime environment specification name"),
+	JAVA_SPECIFICATION_VERSION(80, false/*true*/, "java.specification.version", "Java Specification Version", "Java runtime environment specification version"), 
+	JAVA_SPECIFICATION_VENDOR(81, false/*true*/, "java.specification.vendor", "Java Specification Vendor", "Java runtime environment specification vendor"), 
+	JAVA_SPECIFICATION_NAME(82, false/*true*/, "java.specification.name", "Java Specification Name", "Java runtime environment specification name"),
 	
 	//	JAVA VM (100 - 119)
-	JAVA_VM_NAME(100, false, "java.vm.name", "Java VM Name", "Java virtual machine implementation name"), 
-	JAVA_VM_VENDOR(101, false, "java.vm.vendor", "Java VM Vendor", "Java virtual machine implementation vendor"), 
-	JAVA_VM_VERSION(102, false, "java.vm.version", "Java VM Version", "Java virtual machine implementation version"), 
+	JAVA_VM_NAME(100, false/*true*/, "java.vm.name", "Java VM Name", "Java virtual machine implementation name"), 
+	JAVA_VM_VENDOR(101, false/*true*/, "java.vm.vendor", "Java VM Vendor", "Java virtual machine implementation vendor"), 
+	JAVA_VM_VERSION(102, false/*true*/, "java.vm.version", "Java VM Version", "Java virtual machine implementation version"), 
 	JAVA_VM_INFO(103, false, "java.vm.info", "Java VM Info", "Java virtual machine information"), 
 	JAVA_VM_COMPRESSED_OOPS_MODE(104, false, "java.vm.compressedOopsMode", "Java Compressed Oops Mode", "Java compressed oops mode"), 
 	JAVA_VM_SERVER(105, false, "java.vm.server", "Java VM Server", "ava virtual machine server"),
 	
 	// JAVA VM SPECIFICATION (140 - 169)
-	JAVA_VM_SPECIFICATION_NAME(140, false, "java.vm.specification.name", "Java VM Specification Name", "Java virtual machine specification name"), 
-	JAVA_VM_SPECIFICATION_VENDOR(141, false, "java.vm.specification.vendor", "Java VM Specification Vendor", "Java virtual machine specification vendor"), 
-	JAVA_VM_SPECIFICATION_VERSION(142, false, "java.vm.specification.version", "Java VM Specification Version", "Java virtual machine specification version"),
+	JAVA_VM_SPECIFICATION_NAME(140, false/*true*/, "java.vm.specification.name", "Java VM Specification Name", "Java virtual machine specification name"), 
+	JAVA_VM_SPECIFICATION_VENDOR(141, false/*true*/, "java.vm.specification.vendor", "Java VM Specification Vendor", "Java virtual machine specification vendor"), 
+	JAVA_VM_SPECIFICATION_VERSION(142, false/*true*/, "java.vm.specification.version", "Java VM Specification Version", "Java virtual machine specification version"),
 	
 	//	JAVA AWT (170 - 199)
 	JAVA_AWT_GRAPHICS_ENV(170, false, "java.awt.graphicsenv", "Java AWT Graphics Env", "Java abstract window toolkit graphics environment"), 
@@ -89,9 +98,9 @@ public enum EnumProperties{
 	USER_NAME(700, true, "user.name", "Username", "User account name"), 
 	USER_HOME(701, true, "user.home", "User Home", "User home directory"), 
 	USER_DIR(702, true, "user.name", "User Directory", "User current working directory"), 
-	USER_COUNTRY(703, false, "user.country", "User Country", "User current country"), 
+	USER_COUNTRY(/*Ex : FR */703, false, "user.country", "User Country", "User current country"), 
 	USER_COUNTRY_FORMAT(704, false, "user.country.format", "User Country Format", "User current country format"), 
-	USER_LANGUAGE(705, false, "user.language", "User Language", "User current language"), 
+	USER_LANGUAGE(/*Ex : fr */705, false, "user.language", "User Language", "User current language"), 
 	USER_REGION(706, false, "user.region", "User Region", "User region"), 
 	USER_SCRIPT(707, false, "user.script", "User Script", "User account script"), 
 	USER_TIMEZONE(708, false, "user.timezone", "User Timezone", "User current timezone"), 

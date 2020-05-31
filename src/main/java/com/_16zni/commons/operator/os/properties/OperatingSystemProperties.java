@@ -5,17 +5,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.Set;
 import com._16zni.api.commons.operator.exceptions.IllegalKeyException;
 import com._16zni.api.commons.operator.exceptions.IllegalValueException;
-import com._16zni.commons.operator.EnumProperties;
 import com._16zni.commons.operator.OperatorConstants;
 import com._16zni.commons.operator.os.OperatingSystem;
+import com._16zni.commons.operator.properties.EnumProperties;
 
 public class OperatingSystemProperties extends OperatingSystem{
 	private static final long serialVersionUID = OperatorConstants.SERIAL;
-	private Properties systemProperties;
 	private Map<String, String> properties;
 	private Iterator<Entry<String, String>> propertiesEntryIterator;
 	
@@ -25,14 +23,6 @@ public class OperatingSystemProperties extends OperatingSystem{
 	}
 
 	public OperatingSystemProperties(){
-	}
-
-	public Properties getSystemProperties(){
-		return systemProperties;
-	}
-
-	public void setSystemProperties(Properties properties){
-		systemProperties = properties;
 	}
 
 	public Map<String, String> getProps(){
@@ -84,7 +74,7 @@ public class OperatingSystemProperties extends OperatingSystem{
 			Entry<String, String> propsEntry = propertiesEntryIterator.next();
 			if(propsEntry.getValue().equalsIgnoreCase(value)) return propsEntry.getKey();
 		}
-		return "key:null@value:" + value;
+		return "key:" + OperatorConstants.NULL + "@value:" + value;
 	}
 
 	public String getValue(String key){
@@ -151,11 +141,11 @@ public class OperatingSystemProperties extends OperatingSystem{
 		return getProps().size();
 	}
 
-	public void checkKey(String key){
+	private void checkKey(String key){
 		if(key.isEmpty() || key == null) throw new IllegalKeyException("The key {" + key + "} is not correct !");
 	}
 
-	public void checkValue(String value){
+	private void checkValue(String value){
 		if(value.isEmpty() || value == null) throw new IllegalValueException("The value {" + value + "} is not correct !");
 	}
 }

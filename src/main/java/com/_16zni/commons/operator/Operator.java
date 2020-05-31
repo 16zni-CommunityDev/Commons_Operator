@@ -4,15 +4,15 @@ import java.util.Objects;
 import com._16zni.api.commons.operator.IOperator;
 import com._16zni.commons.operator.os.OperatingSystem;
 
-public class Operator implements IOperator<Operator>, Runnable{
+public class Operator implements IOperator<Operator>{
 	private static final long serialVersionUID = OperatorConstants.SERIAL;
 	private static Operator instance;
 	private static OperatorConstants constants;
-	private /*static*/ Bootstrap bootstrap;
+	private Bootstrap bootstrap;
 	private OperatingSystem os;
+	
 	/*static{
 		setConstants(new OperatorConstants());
-		setBootstrap(new Bootstrap());
 	}*/
 
 	public Operator(){
@@ -79,9 +79,5 @@ public class Operator implements IOperator<Operator>, Runnable{
 
 	private void setOperatingSystem(OperatingSystem operatingSystem){
 		os = operatingSystem;
-	}
-
-	@Override
-	public void run(){
 	}
 }

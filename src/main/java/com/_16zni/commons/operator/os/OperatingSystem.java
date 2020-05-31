@@ -1,5 +1,6 @@
 package com._16zni.commons.operator.os;
 
+import java.util.Properties;
 import com._16zni.api.commons.operator.os.IOS;
 import com._16zni.commons.operator.OperatorConstants;
 import com._16zni.commons.operator.os.properties.OperatingSystemProperties;
@@ -7,6 +8,7 @@ import com._16zni.commons.operator.os.properties.OperatingSystemProperties;
 public class OperatingSystem extends BaseOperatingSystem implements IOS{
 	private static final long serialVersionUID = OperatorConstants.SERIAL;
 	private OperatingSystemProperties osProperties;
+	private Properties systemProperties;
 	private EnumOS os;
 
 	public OperatingSystem(){
@@ -18,6 +20,14 @@ public class OperatingSystem extends BaseOperatingSystem implements IOS{
 
 	public void setProperties(OperatingSystemProperties properties){
 		osProperties = properties;
+	}
+
+	public Properties getSystemProperties(){
+		return systemProperties;
+	}
+
+	public void setSystemProperties(Properties properties){
+		systemProperties = properties;
 	}
 
 	@Override
